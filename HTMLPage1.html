@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐</title> <!-- 修改标题 -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-image: url('https://www.w3schools.com/w3images/flowers.jpg'); /* 新鲜花背景 */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #ffcc00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 20px;
+            color: #fff;
+            line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        /* 鲜花效果 */
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 182, 193, 0.8); /* 玫瑰色 */
+            border-radius: 50%;
+            animation: explode 2s infinite;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(calc(100vw * random(0.5, 1)), calc(100vh * random(0.5, 1))) scale(3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>杨静怡：</h1>
+    <p>人间烟火，岁月悠长</p>
+    <p>愿你的生日充满无尽的欢乐与祝福</p>
+    <p>你值得被爱，值得被善待</p>
+    <p>—— 李颉涛</p> <!-- 添加了李颉涛作为后缀名 -->
+
+    <script>
+        // 鲜花效果
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = `${Math.random() * 100}vw`;
+            firework.style.top = `${Math.random() * 100}vh`;
+            document.body.appendChild(firework);
+
+            // 移除已经结束的花朵
+            setTimeout(() => {
+                firework.remove();
+            }, 2000);  // 动画时长
+        }
+
+        // 随机生成鲜花效果
+        setInterval(createFirework, 200);
+    </script>
+</body>
+</html>
